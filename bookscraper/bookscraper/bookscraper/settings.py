@@ -68,7 +68,8 @@ ITEM_PIPELINES = {
 
 FEEDS = {
     'data/%(name)s/%(name)s_%(time)s.jsonl': {
-        'format': 'jsonlines'
+        'format': 'jsonlines',
+        'overwrite': True
         }
 }
 
