@@ -66,6 +66,12 @@ ITEM_PIPELINES = {
    "bookscraper.pipelines.BookscraperPipeline": 300,
 }
 
+FEEDS = {
+    'data/%(name)s/%(name)s_%(time)s.jsonl': {
+        'format': 'jsonlines'
+        }
+}
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
