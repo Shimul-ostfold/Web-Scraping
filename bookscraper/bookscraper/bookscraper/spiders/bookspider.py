@@ -25,24 +25,6 @@ class BookspiderSpider(scrapy.Spider):
                 next_page_url = 'https://books.toscrape.com/catalogue/' + next_page
             yield response.follow(next_page_url, callback = self.parse)
     
-    # def parse_book_page(self, response):
-    #     book = response.css("div.product_main")[0]
-    #     table_rows = response.css('table tr')
-    #     yield{
-    #         'url' :   response.url,
-    #         'title' :   response.css('div.product_main h1::text').get(),
-    #         'upc' :   table_rows[0].css('tr td::text').get(),
-    #         'product_type' :   table_rows[1].css('tr td::text').get(),
-    #         'price_excl_tax' :   table_rows[2].css('tr td::text').get(),
-    #         'price_incl_tax' :   table_rows[3].css('tr td::text').get(),
-    #         'tax' :   table_rows[4].css('tr td::text').get(),
-    #         'availability' :   table_rows[5].css('tr td::text').get(),
-    #         'num_reviews' :   table_rows[6].css('tr td::text').get(),
-    #         'stars' :   book.css('p.star-rating').attrib['class'],
-    #         'category' :   book.xpath('//ul[@class="breadcrumb"]/li[@class="active"]/preceding-sibling::li[1]/a/text()').get(),
-    #         'description' :   book.xpath('//div[@id="product_description"]/following-sibling::p/text()').get(),
-    #         'price' :   book.css('p.price_color::text').get(),
-    #     }
 
     def parse_book_page(self, response):
         book = response.css("div.product_main")[0]
