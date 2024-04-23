@@ -41,11 +41,11 @@ class BookspiderSpider(scrapy.Spider):
         book_item['price_excl_tax'] = table_rows[2].css('tr td::text').get()
         book_item['price_incl_tax'] = table_rows[3].css('tr td::text').get()
         book_item['tax'] = table_rows[4].css('tr td::text').get()
+        book_item['price'] = book.css('p.price_color::text').get()
         book_item['availability'] = table_rows[5].css('tr td::text').get()
         book_item['num_reviews'] = table_rows[6].css('tr td::text').get()
         book_item['stars'] = book.css('p.star-rating').attrib['class']
         book_item['category'] = book.xpath('//ul[@class="breadcrumb"]/li[@class="active"]/preceding-sibling::li[1]/a/text()').get()
         book_item['description' ] = book.xpath('//div[@id="product_description"]/following-sibling::p/text()').get()
-        book_item['price'] = book.css('p.price_color::text').get()
         yield book_item
         
