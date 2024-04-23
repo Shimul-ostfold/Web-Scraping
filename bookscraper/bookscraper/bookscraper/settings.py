@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = "bookscraper.spiders"
 #USER_AGENT = "bookscraper (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -75,12 +75,13 @@ FEEDS = {
 }
 
 SCRAPEOPS_API_KEY = '99c210c8-22dd-4aca-bdaf-ad9089d850a3'
-SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'http://headers.scrapeops.io/v1/user-agents?'
+# SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = 'http://headers.scrapeops.io/v1/user-agents?'
 SCRAPEOPS_FAKE_USER_AGENT_ENABLED = True
 SCRAPEOPS_NUM_RESULTS = 50
 
 DOWNLOADER_MIDDLEWARES = {
-    'bookscraper.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
+    'bookscraper.middlewares.ScrapeOpsFakeBrowserHeaderAgentMiddleware': 400,
+   #  'bookscraper.middlewares.ScrapeOpsFakeUserAgentMiddleware': 400,
 }
 
 
